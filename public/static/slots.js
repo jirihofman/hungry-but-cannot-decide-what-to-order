@@ -73,7 +73,7 @@ $(document).ready(function() {
 			break;
 
 		default:
-			options = ALL_OPTIONS[foodType]
+			options = ALL_OPTIONS[foodType] || ALL_OPTIONS.emoji
 			break;
 	}
 
