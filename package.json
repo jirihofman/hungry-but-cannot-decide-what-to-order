@@ -1,9 +1,9 @@
 {
   "name": "learn-starter",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.2",
+  "private": false,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 4037",
     "build": "next build",
     "start": "next start"
   },
