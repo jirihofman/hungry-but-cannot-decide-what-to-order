@@ -7,8 +7,8 @@ export default function Home() {
       <Head>
         <title>Vyber mi jídlo</title>
         <link rel="icon" href="/favicon.ico" />
-        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script defer src="static/slots.js" ></script>
+        <script src="static/jquery.min.js"></script>
+        <script src="static/slots.js" ></script>
       </Head>
 
       <main>
