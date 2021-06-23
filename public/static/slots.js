@@ -4,7 +4,8 @@ const SLOTS_PER_REEL = 12;
 const REEL_RADIUS = 150;
 
 const ALL_OPTIONS = {
-	hk: ['Nepálská', 'Avion', 'Choosy Fresh', 'Localis', 'McDonald\'s', 'Nežer!'],
+	hk1: ['Choosy Fresh', 'Náplavka', 'Nepálská', 'Ugo', 'Vietnamská'],
+	hk2: ['Amïci', 'Avion', 'Hieu Thao', 'Chilli táta', 'Choosy Fresh', 'Cook Look', 'Localis', 'McDonald\'s', 'Na Hradě', 'Sport cafe', 'Ugo', 'Uvař si!', 'Nežer!'],
 	emoji: ['🥞', '🥩', '🌭', '🍔', '🍕', '🥗', '🍣', '🥪', '🌮', '🍜', '🍰'],
 	level5vegan: ['🍎', '🍌', '🥦', '🥑', '🥒', '🌽', '🥔', '🍠', '🥕', '🥬', '🫑', '🍍']
 }
@@ -26,7 +27,7 @@ function createSlots(ring, options) {
 		// setup the number to show inside the slots
 		// the position is randomized to 
 		const option = Math.floor(Math.random() * options.length)
-		const content = $(slot).append('<p>' + options[option] + '</p>');
+		$(slot).append('<p>' + options[option] + '</p>');
 
 		// add the poster to the row
 		ring.append(slot);

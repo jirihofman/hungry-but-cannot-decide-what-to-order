@@ -298,3 +298,7 @@ label {
 	border-radius: 10px;
 	padding: 1em;
 }
+
+.options {
+	width: 600px;
+}

@@ -20,8 +20,9 @@ export default function Home() {
           <div>
             <button className="go">Vyber jídlo</button>
           </div>
-          <div>
-            <a href="?t=hk" className="type">HK</a>
+          <div className="options">
+            <a href="?t=hk1" className="type">HK fancy</a>
+            <a href="?t=hk2" className="type">HK mainstream</a>
             <a href="?t=emoji" className="type">Emoji</a>
             <a href="?t=level5vegan" className="type">Ultravegan</a>
           </div>
