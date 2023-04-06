@@ -4,8 +4,8 @@ const SLOTS_PER_REEL = 12;
 const REEL_RADIUS = 150;
 
 const ALL_OPTIONS = {
-	hk1: ['Choosy Fresh', 'Náplavka', 'Nepálská', 'Ugo', 'Vietnamská'],
-	hk2: ['Amïci', 'Avion', 'Hieu Thao', 'Chilli táta', 'Choosy Fresh', 'Cook Look', 'Localis', 'McDonald\'s', 'Na Hradě', 'Sport cafe', 'Ugo', 'Uvař si!', 'Nežer!'],
+	hk1: ['Avion', 'Choosy Fresh', 'Náplavka', 'Nepálská'],
+	hk2: ['Avion', 'Hieu Thao', 'Choosy Fresh', 'Cook Look', 'Localis', 'McDonald\'s', 'Na Hradě', 'Sport cafe', 'Ugo', 'Uvař si!', 'Nežer!'],
 	emoji: ['🥞', '🥩', '🌭', '🍔', '🍕', '🥗', '🍣', '🥪', '🌮', '🍜', '🍰'],
 	level5vegan: ['🍎', '🍌', '🥦', '🥑', '🥒', '🌽', '🥔', '🍠', '🥕', '🥬', '🫑', '🍍']
 }
