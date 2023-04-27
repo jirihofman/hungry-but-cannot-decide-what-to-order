@@ -5,7 +5,7 @@ import { ALL_OPTIONS, SLOTS_PER_REEL, TIMER } from './const';
 
 export default function Machine() {
 
-	const [seed, setSeed] = useState(-1);
+	const [seed, setSeed] = useState(0);
 	const [options, setOptions] = useState(ALL_OPTIONS.emoji);
 
 	function handleGoClick() {
