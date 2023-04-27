@@ -26,7 +26,7 @@ export default function Machine() {
 						<Slots options={options} />
 					</div>
 				</div>
-				<div className="mt-36 options flex justify-center z-10 text-sm text-transparent duration-1000 cursor-default text-edge-outline animate-title font-display whitespace-nowrap bg-clip-text bg-white">
+				<div className="mt-48 options flex justify-center z-10 text-sm text-transparent duration-1000 cursor-default text-edge-outline animate-title font-display whitespace-nowrap bg-clip-text bg-white">
 					<button onClick={() => setOptions(ALL_OPTIONS.hk1)} className="flex flex-row bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded rounded-lg border-zinc-500">HK fancy</button>
 					<button onClick={() => setOptions(ALL_OPTIONS.hk2)} className="flex flex-row bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded rounded-lg border-zinc-500">HK mainstream</button>
 					<button onClick={() => setOptions(ALL_OPTIONS.emoji)} className="flex flex-row bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded rounded-lg border-zinc-500">Emoji</button>
