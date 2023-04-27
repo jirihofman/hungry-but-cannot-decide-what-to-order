@@ -15,7 +15,7 @@ export default function Machine() {
 
 	return (
 		<main className='flex flex-col items-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black'>
-			<div className="mt-8 text-center animate-fade-in">
+			<div className="mt-1 text-center animate-fade-in">
 				<h2 className="text-lg text-zinc-500">
 					Bon appétit!
 				</h2>
