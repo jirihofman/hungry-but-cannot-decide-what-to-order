@@ -6,10 +6,8 @@ export default function Slots({ options = [] }) {
 	// radius = Math.round( ( panelWidth / 2) / Math.tan( Math.PI / SLOTS_PER_REEL ) ); 
 	// current settings give a value of 149, rounded to 150
 	const REEL_RADIUS = 150;
-	console.log('Slots', options)
 
 	const slotAngle = 360 / SLOTS_PER_REEL;
-
 
 	const slots = [];
 	for (let i = 0; i < SLOTS_PER_REEL; i++) {
