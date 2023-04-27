@@ -34,10 +34,10 @@ export default function Machine() {
 					</div>
 				</div>
 				<div className="mt-36 options flex justify-center z-10 text-sm text-transparent duration-1000 cursor-default text-edge-outline animate-title font-display whitespace-nowrap bg-clip-text bg-white">
-					<button onClick={() => setOptions(ALL_OPTIONS.hk1)} className="flex flex-row bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded rounded-lg border-zinc-500">HK fancy</button>
-					<button onClick={() => setOptions(ALL_OPTIONS.hk2)} className="flex flex-row bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded rounded-lg border-zinc-500">HK mainstream</button>
-					<button onClick={() => setOptions(ALL_OPTIONS.emoji)} className="flex flex-row bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded rounded-lg border-zinc-500">Emoji</button>
-					<button onClick={() => setOptions(ALL_OPTIONS.level5vegan)} className="flex flex-row bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded rounded-lg border-zinc-500">Ultravegan</button>
+					<button onClick={() => setOptions(ALL_OPTIONS.hk1)} className="hover:bg-blue-700 text-white font-bold py-2 px-2 rounded rounded-lg">HK fancy</button>
+					<button onClick={() => setOptions(ALL_OPTIONS.hk2)} className="hover:bg-blue-700 text-white font-bold py-2 px-2 rounded rounded-lg">HK mainstream</button>
+					<button onClick={() => setOptions(ALL_OPTIONS.emoji)} className="hover:bg-blue-700 text-white font-bold py-2 px-2 rounded rounded-lg">Emoji</button>
+					<button onClick={() => setOptions(ALL_OPTIONS.level5vegan)} className="flex flex-row hover:bg-blue-700 text-white font-bold py-2 px-2 rounded rounded-lg">Ultravegan</button>
 				</div>
 				<div className="mt-2 flex flex-row justify-center">
 					<button className='flex flex-row bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-2 rounded rounded-lg border-zinc-500' onClick={() => handleGoClick()}>Vyber jídlo</button>

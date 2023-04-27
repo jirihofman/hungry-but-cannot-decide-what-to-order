@@ -47,11 +47,16 @@ body {
 	box-sizing: border-box;
 	opacity: 0.9;
 	color: rgba(0, 0, 0, 0.9);
-	background: #fff;
+	background-color: #fafafa;;
 	border: solid 2px #000;
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
 	backface-visibility: hidden;
+}
+
+.slot:hover {
+	opacity: 1;
+	background-color: rgb(252 165 165);
 }
 
 .backface-on {

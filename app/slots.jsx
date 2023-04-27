@@ -13,8 +13,10 @@ export default function Slots({ options = [] }) {
 			transform: 'rotateX(' + (slotAngle * i) + 'deg) translateZ(' + REEL_RADIUS + 'px)'
 		}
 
+		// If there is fewer options than slots, repeat the options.
+		const index = i % options.length;
 		const slot = <div key={i} className="slot" style={slotStyle}>
-			<p>{options[i]}</p>
+			<p>{options[index]}</p>
 		</div>
 
 		// add the poster to the row
