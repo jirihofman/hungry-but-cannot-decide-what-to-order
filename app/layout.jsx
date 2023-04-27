@@ -1,7 +1,7 @@
 import "../global.css";
 import "../styles/global.css";
 import { Inter } from "next/font/google";
-import { Analytics } from '@vercel/analytics/react';
+// import { Analytics } from '@vercel/analytics/react';
 import pjson from "../package.json";
 
 /** @type {import('next').Metadata} */
@@ -46,7 +46,7 @@ export default function RootLayout({
 					process.env.NODE_ENV === "development" ? "debug-screens" : ''
 				}`}
 			>
-				<Analytics />
+				{/* <Analytics /> */}
 				{children}
 			</body>
 		</html>

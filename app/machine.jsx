@@ -5,13 +5,20 @@ import { ALL_OPTIONS, SLOTS_PER_REEL, TIMER } from './const';
 
 export default function Machine() {
 
-	const [seed, setSeed] = useState(0);
-	const [options, setOptions] = useState(ALL_OPTIONS.emoji);
+	const [seed, setSeed] = useState(-1);
+	// Psuedoramdom number generator to get rid of mismatch between server and client values. Doesn't work all the time. 1 second difference is common.
+	// Error: xt content did not match. Server: "🥞" Client: "🍰"
+	const [options, setOptions] = useState(ALL_OPTIONS.emoji.sort(() => .5 - new Date().getSeconds() / 60));
 
 	function handleGoClick() {
 
+		// Randomize options on every go.
+		setOptions(options.sort(() => .5 - Math.random()))
 		setSeed(Math.floor(Math.random() * (SLOTS_PER_REEL)));
 	}
+
+	const className = seed === -1 ? '' : `spin-${seed}`;
+	const animation = seed === -1 ? '' : 'back-spin 1s, spin-' + seed + ' ' + TIMER + 's';
 
 	return (
 		<main className='flex flex-col items-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black'>
@@ -22,11 +29,11 @@ export default function Machine() {
 			</div>
 			<div className="perspective-on text-lg text-zinc-500">
 				<div id="rotate" className=''>
-					<div className={`ring spin-${seed}`} style={{ animation: 'back-spin 1s, spin-' + seed + ' ' + TIMER + 's' }}>
+					<div className={`ring ${className}`} style={{ animation }}>
 						<Slots options={options} />
 					</div>
 				</div>
-				<div className="mt-48 options flex justify-center z-10 text-sm text-transparent duration-1000 cursor-default text-edge-outline animate-title font-display whitespace-nowrap bg-clip-text bg-white">
+				<div className="mt-36 options flex justify-center z-10 text-sm text-transparent duration-1000 cursor-default text-edge-outline animate-title font-display whitespace-nowrap bg-clip-text bg-white">
 					<button onClick={() => setOptions(ALL_OPTIONS.hk1)} className="flex flex-row bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded rounded-lg border-zinc-500">HK fancy</button>
 					<button onClick={() => setOptions(ALL_OPTIONS.hk2)} className="flex flex-row bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded rounded-lg border-zinc-500">HK mainstream</button>
 					<button onClick={() => setOptions(ALL_OPTIONS.emoji)} className="flex flex-row bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded rounded-lg border-zinc-500">Emoji</button>
