@@ -8,7 +8,7 @@ export default function Machine() {
 	const [seed, setSeed] = useState(-1);
 	// Psuedoramdom number generator to get rid of mismatch between server and client values. Doesn't work all the time. 1 second difference is common.
 	// Error: xt content did not match. Server: "🥞" Client: "🍰"
-	const [options, setOptions] = useState(ALL_OPTIONS.emoji.sort(() => .5 - new Date().getSeconds() / 60));
+	const [options, setOptions] = useState(ALL_OPTIONS.emoji);
 	const [activeButton, setActiveButton] = useState('emoji');
 
 	function handleGoClick() {

@@ -6,6 +6,19 @@ export default function Slots({ options = [] }) {
 	const REEL_RADIUS = 150;
 	const slotAngle = 360 / SLOTS_PER_REEL;
 
+	const handleSlotClick = (event) => {
+		const slot = event.currentTarget;
+		const p = slot.querySelector('p');
+		if (p) {
+			// Remove any existing animation
+			p.style.animation = 'none';
+			// Force reflow
+			p.offsetHeight;
+			// Add the animation
+			p.style.animation = 'pan-spin 0.6s ease-in-out';
+		}
+	};
+
 	const slots = [];
 	for (let i = 0; i < SLOTS_PER_REEL; i++) {
 		const slotStyle = {
@@ -15,7 +28,7 @@ export default function Slots({ options = [] }) {
 
 		// If there is fewer options than slots, repeat the options.
 		const index = i % options.length;
-		const slot = <div key={i} className="slot" style={slotStyle}>
+		const slot = <div key={i} className="slot" style={slotStyle} onClick={handleSlotClick}>
 			<p>{options[index]}</p>
 		</div>
 
