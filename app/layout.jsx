@@ -1,6 +1,5 @@
 import "../global.css";
 import "../styles/global.css";
-import { Inter } from "next/font/google";
 // import { Analytics } from '@vercel/analytics/react';
 import pjson from "../package.json";
 
@@ -31,16 +30,12 @@ export const metadata = {
 		},
 	]
 };
-const inter = Inter({
-	subsets: ["latin"],
-	variable: "--font-inter",
-});
 
 export default function RootLayout({
 	children,
 }) {
 	return (
-		<html lang="en" className={inter.variable}>
+		<html lang="en">
 			<body
 				className={`bg-black ${
 					process.env.NODE_ENV === "development" ? "debug-screens" : ''
