@@ -52,16 +52,11 @@ body {
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
 	backface-visibility: hidden;
-	cursor: pointer;
 }
 
 .slot:hover {
 	opacity: 1;
 	background-color: rgb(252 165 165);
-}
-
-.slot:hover p {
-	animation: pan-spin 0.6s ease-in-out;
 }
 
 .backface-on {
@@ -311,23 +306,4 @@ label {
 
 .options {
 	width: 600px;
-}
-
-/* Individual card spinning animation */
-@keyframes pan-spin {
-	0% {
-		transform: rotateZ(0deg);
-	}
-	25% {
-		transform: rotateZ(90deg);
-	}
-	50% {
-		transform: rotateZ(180deg);
-	}
-	75% {
-		transform: rotateZ(270deg);
-	}
-	100% {
-		transform: rotateZ(360deg);
-	}
 }
