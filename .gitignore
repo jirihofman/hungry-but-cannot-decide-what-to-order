@@ -12,6 +12,10 @@
 /dist/
 /.astro/
 
+# next.js (legacy)
+/.next/
+/out/
+
 # production
 /build
 
