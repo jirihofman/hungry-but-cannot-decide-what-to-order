@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import Slots from './slots.jsx';
+import Slots from './Slots.jsx';
 import { ALL_OPTIONS, SLOTS_PER_REEL, TIMER } from './const';
 
 export default function Machine() {
