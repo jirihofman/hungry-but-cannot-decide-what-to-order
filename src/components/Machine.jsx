@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Slots from './Slots.jsx';
 import { ALL_OPTIONS, SLOTS_PER_REEL, TIMER } from './const';
 
@@ -10,6 +10,12 @@ export default function Machine() {
 	// Error: xt content did not match. Server: "🥞" Client: "🍰"
 	const [options, setOptions] = useState(ALL_OPTIONS.emoji.sort(() => .5 - new Date().getSeconds() / 60));
 	const [activeButton, setActiveButton] = useState('emoji');
+	
+	// Drag-to-spin functionality
+	const [isDragging, setIsDragging] = useState(false);
+	const dragStartY = useRef(0);
+	const rotateRef = useRef(null);
+	const DRAG_THRESHOLD = 50; // pixels of downward drag needed to trigger spin
 
 	function handleGoClick() {
 
@@ -28,6 +34,71 @@ export default function Machine() {
 		return activeButton === buttonOption ? 'bg-blue-500' : '';
 	}
 
+	// Drag handlers
+	function handleDragStart(clientY) {
+		setIsDragging(true);
+		dragStartY.current = clientY;
+	}
+
+	function handleDragMove(clientY) {
+		if (!isDragging) return;
+		
+		const dragDistance = clientY - dragStartY.current;
+		
+		// If dragged down enough, trigger spin
+		if (dragDistance > DRAG_THRESHOLD) {
+			handleGoClick();
+			setIsDragging(false); // Prevent multiple triggers
+		}
+	}
+
+	function handleDragEnd() {
+		setIsDragging(false);
+	}
+
+	// Mouse events
+	function handleMouseDown(event) {
+		event.preventDefault();
+		handleDragStart(event.clientY);
+	}
+
+	// Touch events
+	function handleTouchStart(event) {
+		event.preventDefault();
+		handleDragStart(event.touches[0].clientY);
+	}
+
+	function handleTouchMove(event) {
+		if (event.touches.length > 0) {
+			handleDragMove(event.touches[0].clientY);
+		}
+	}
+
+	function handleTouchEnd() {
+		handleDragEnd();
+	}
+
+	// Add global event listeners for mouse move and mouse up
+	useEffect(() => {
+		function handleGlobalMouseMove(event) {
+			handleDragMove(event.clientY);
+		}
+
+		function handleGlobalMouseUp() {
+			handleDragEnd();
+		}
+
+		if (isDragging) {
+			document.addEventListener('mousemove', handleGlobalMouseMove);
+			document.addEventListener('mouseup', handleGlobalMouseUp);
+		}
+
+		return () => {
+			document.removeEventListener('mousemove', handleGlobalMouseMove);
+			document.removeEventListener('mouseup', handleGlobalMouseUp);
+		};
+	}, [isDragging]);
+
 	const className = seed === -1 ? '' : `spin-${seed}`;
 	const animation = seed === -1 ? '' : 'back-spin 1s, spin-' + seed + ' ' + TIMER + 's';
 
@@ -39,7 +110,16 @@ export default function Machine() {
 				</h2>
 			</div>
 			<div className="perspective-on text-lg text-zinc-500">
-				<div id="rotate" className=''>
+				<div 
+					ref={rotateRef}
+					id="rotate" 
+					className=''
+					onMouseDown={handleMouseDown}
+					onTouchStart={handleTouchStart}
+					onTouchMove={handleTouchMove}
+					onTouchEnd={handleTouchEnd}
+					style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+				>
 					<div className={`ring ${className}`} style={{ animation }}>
 						<Slots options={options} />
 					</div>
