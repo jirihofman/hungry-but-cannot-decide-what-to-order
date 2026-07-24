@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@astrojs/node": "^9.5.5",
-    "@astrojs/react": "^5.0.2",
+    "@astrojs/react": "^5.0.4",
     "@astrojs/tailwind": "^6.0.2",
     "astro": "^5.18.1",
     "react": "^19.1.1",
