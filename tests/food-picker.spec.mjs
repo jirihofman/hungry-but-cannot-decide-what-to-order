@@ -11,12 +11,15 @@ test('food categories and spin controls keep their styles and behavior', async (
   // The existing initial shuffle uses the clock. Assert explicit choices after hydration.
   const fancy = page.getByRole('button', { name: 'HK fancy', exact: true });
   await fancy.click();
+  await expect(fancy).toHaveCSS('background-color', 'rgb(29, 78, 216)');
+  await page.mouse.move(0, 0);
   await expect(fancy).toHaveCSS('background-color', 'rgb(59, 130, 246)');
   await expect.poll(async () => [...new Set(await page.locator('.slot p').allTextContents())].sort())
     .toEqual(['Avion', 'Nepálská', 'Náplavka'].sort());
 
   const vegan = page.getByRole('button', { name: 'Ultravegan', exact: true });
   await vegan.click();
+  await page.mouse.move(0, 0);
   await expect(vegan).toHaveCSS('background-color', 'rgb(59, 130, 246)');
   await expect(fancy).not.toHaveClass(/bg-blue-500/);
   await expect.poll(async () => (await page.locator('.slot p').allTextContents()).sort())
