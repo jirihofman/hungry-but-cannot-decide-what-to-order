@@ -7,6 +7,7 @@ export default defineConfig({
     react()
   ],
   output: 'static',
+  compressHTML: true,
   build: {
     assets: 'assets'
   }
